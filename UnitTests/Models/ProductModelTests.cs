@@ -30,5 +30,32 @@ namespace UnitTests
             // Assert
             Assert.AreEqual(DateTime.UtcNow.ToShortDateString(), result.Date.ToShortDateString());
         }
+
+        [TestMethod]
+        public void ProductModel_AverageRating_Valid_Default_Should_Return_5()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+            // Act
+            var result = data.AverageRating();
+
+            // Assert
+            Assert.AreEqual(5, result);
+        }
+
+        [TestMethod]
+        public void ProductModel_AverageRating_NULL_Ratings_Should_Return_0()
+        {
+            // Arrange
+            var data = new ProductModel();
+            data.Ratings =  null;
+
+            // Act
+            var result = data.AverageRating();
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
     }
 }
