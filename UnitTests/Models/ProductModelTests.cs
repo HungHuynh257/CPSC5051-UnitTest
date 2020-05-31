@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HWUT.Models;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using System;
 
 namespace UnitTests
@@ -91,7 +93,7 @@ namespace UnitTests
         {
             // Arrange
             var data = new ProductModel();
-           
+
 
             // Act
             var result = data.Description;
@@ -111,7 +113,7 @@ namespace UnitTests
             var result = data.Email;
 
             // Assert
-            Assert.AreEqual("Unknown",result);
+            Assert.AreEqual("Unknown", result);
         }
 
         [TestMethod]
@@ -141,28 +143,189 @@ namespace UnitTests
             // Assert
             Assert.IsNull(result);
         }
+
+        [TestMethod]
+        public void ProductModel_Get_Logistics_Default_Should_Return_Empty_String()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            var result = data.Logistics;
+
+            // Assert
+            Assert.AreEqual("", result);
+        }
+
+
+        [TestMethod]
+        public void ProductModel_Get_Maker_Default_Should_Return_Null()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            var result = data.Maker;
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void ProductModel_Get_Sequence_Default_Should_Return_Null()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            var result = data.Sequence;
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void ProductModel_Get_Title_Default_Should_Return_Null()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            var result = data.Title;
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void ProductModel_Get_Url_Default_Should_Return_Null()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            var result = data.Url;
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+
+        [TestMethod]
+        public void ProductModel_Set_Description_To_String_hi_Should_Pass()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            data.Description = "hi";
+
+            // Assert
+            Assert.AreEqual("hi", data.Description );
+        }
+
+        [TestMethod]
+        public void ProductModel_Set_Id_To_String_hi_Should_Pass()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            data.Id = "hi";
+
+            // Assert
+            Assert.AreEqual("hi", data.Id);
+        }
+
+        [TestMethod]
+        public void ProductModel_Set_Image_To_String_hi_Should_Pass()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            data.Image = "hi";
+
+            // Assert
+            Assert.AreEqual("hi", data.Image);
+        }
+
+        [TestMethod]
+        public void ProductModel_Set_Maker_To_String_hi_Should_Pass()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            data.Maker = "hi";
+
+            // Assert
+            Assert.AreEqual("hi", data.Maker);
+        }
+
+        [TestMethod]
+        public void ProductModel_Set_Sequence_To_String_hi_Should_Pass()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            data.Sequence = "hi";
+
+            // Assert
+            Assert.AreEqual("hi", data.Sequence);
+        }
+
+        [TestMethod]
+        public void ProductModel_Set_Title_To_String_hi_Should_Pass()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            data.Title = "hi";
+
+            // Assert
+            Assert.AreEqual("hi", data.Title);
+        }
+
+
+        [TestMethod]
+        public void ProductModel_Set_Url_To_String_hi_Should_Pass()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            data.Url = "hi";
+
+            // Assert
+            Assert.AreEqual("hi", data.Url);
+        }
+
         [TestMethod]
         public void ProductModel_ToString_Default_Should_Pass()
         {
             // Arrange
-            var data = new ProductModel();
-            var expected = "\"Id\":" + data.Id 
-                + ",\"Maker\":" + data.Maker 
-                + ",\"img\":" + data.Image 
-                + ",\"Url\":" + data.Url 
-                + ",\"Title\":" + data.Title
-                + ",\"Description\":" + data.Description 
-                + ",\"Date\":" + data.Date
-                + ",\"Sequence\":" + data.Sequence
-                + ",\"Email\":" + data.Email
-                + ",\"Logistics\":" + data.Logistics
-                + ",\"Ratings\":" + data.Ratings;
 
             // Act
-            var result = data.ToString();
+            var result = new ProductModel();
 
             // Assert
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(JsonSerializer.Serialize<ProductModel>(result),result.ToString());
         }
     }
+
 }
