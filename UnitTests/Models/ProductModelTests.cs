@@ -101,6 +101,19 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void ProductModel_Email_Default_Should_Return_Unknown()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            var result = data.Email;
+
+            // Assert
+            Assert.AreEqual("Unknown",result);
+        }
+        [TestMethod]
         public void ProductModel_ToString_Default_Should_Pass()
         {
             // Arrange
