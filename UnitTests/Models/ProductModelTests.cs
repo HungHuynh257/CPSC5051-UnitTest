@@ -87,7 +87,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ProductModel_Description_Default_Should_Return_Null()
+        public void ProductModel_Get_Description_Default_Should_Return_Null()
         {
             // Arrange
             var data = new ProductModel();
@@ -101,7 +101,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ProductModel_Email_Default_Should_Return_Unknown()
+        public void ProductModel_Get_Email_Default_Should_Return_Unknown()
         {
             // Arrange
             var data = new ProductModel();
@@ -112,6 +112,34 @@ namespace UnitTests
 
             // Assert
             Assert.AreEqual("Unknown",result);
+        }
+
+        [TestMethod]
+        public void ProductModel_Get_Id_Default_Should_Return_Null()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            var result = data.Id;
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void ProductModel_Get_Image_Default_Should_Return_Null()
+        {
+            // Arrange
+            var data = new ProductModel();
+
+
+            // Act
+            var result = data.Image;
+
+            // Assert
+            Assert.IsNull(result);
         }
         [TestMethod]
         public void ProductModel_ToString_Default_Should_Pass()
