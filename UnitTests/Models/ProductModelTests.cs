@@ -71,5 +71,19 @@ namespace UnitTests
             // Assert
             Assert.AreEqual(0, result);
         }
+
+        [TestMethod]
+        public void ProductModel_AverageRating_0_total_Should_Return_0()
+        {
+            // Arrange
+            var data = new ProductModel();
+            data.Ratings = new int[] {0,0};
+
+            // Act
+            var result = data.AverageRating();
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
     }
 }
