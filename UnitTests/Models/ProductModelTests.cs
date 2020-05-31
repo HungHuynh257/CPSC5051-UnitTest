@@ -49,7 +49,7 @@ namespace UnitTests
         {
             // Arrange
             var data = new ProductModel();
-            data.Ratings =  null;
+            data.Ratings = null;
 
             // Act
             var result = data.AverageRating();
@@ -77,13 +77,51 @@ namespace UnitTests
         {
             // Arrange
             var data = new ProductModel();
-            data.Ratings = new int[] {0,0};
+            data.Ratings = new int[] { 0, 0 };
 
             // Act
             var result = data.AverageRating();
 
             // Assert
             Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void ProductModel_Description_Default_Should_Return_Null()
+        {
+            // Arrange
+            var data = new ProductModel();
+           
+
+            // Act
+            var result = data.Description;
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void ProductModel_ToString_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new ProductModel();
+            var expected = "\"Id\":" + data.Id 
+                + ",\"Maker\":" + data.Maker 
+                + ",\"img\":" + data.Image 
+                + ",\"Url\":" + data.Url 
+                + ",\"Title\":" + data.Title
+                + ",\"Description\":" + data.Description 
+                + ",\"Date\":" + data.Date
+                + ",\"Sequence\":" + data.Sequence
+                + ",\"Email\":" + data.Email
+                + ",\"Logistics\":" + data.Logistics
+                + ",\"Ratings\":" + data.Ratings;
+
+            // Act
+            var result = data.ToString();
+
+            // Assert
+            Assert.AreEqual(expected, result);
         }
     }
 }
